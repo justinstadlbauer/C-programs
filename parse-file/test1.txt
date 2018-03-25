@@ -1,0 +1,3 @@
+hi my name is justin
+I really like to program in C
+It's fun!
