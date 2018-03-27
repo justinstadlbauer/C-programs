@@ -1,0 +1,22 @@
+A virtual appliance is an image containing an OS and preconfigured software that can
+be run on a hypervisor. It’s the hypervisor’s job to run one or more virtual appliances.
+Because a virtual appliance contains a fixed state, every time you start the virtual ap-
+pliance, you’ll get exactly the same result. You can reproduce virtual appliances as
+often as needed, so you can use them to eliminate the cost of installing and config-
+uring complex stacks of software. Virtual appliances are used by virtualization tools
+from VMware, Microsoft, and Oracle and for infrastructure as a service offerings in
+the cloud.
+The AMI is the virtual appliance image in AWS. It’s a special virtual appliance for use
+with the EC2 service for virtual servers. An AMI technically consists of a read-only file-
+system including the OS, additional software, and configuration; it doesn’t include
+the kernel of the OS. The kernel is loaded from an Amazon Kernel Image (AKI). You
+can also use AMIs for deploying software on AWS.
+AWS uses Xen, an open source hypervisor, as the underlying technology for the EC2
+service. The current generations of virtual servers on AWS use hardware-assisted vir-
+tualization. The technology is called Hardware Virtual Machine (HVM) and uses the
+Intel VT-x platform. A virtual server run by an AMI based on HVM uses a fully virtual-
+ized set of hardware and can take advantage of hardware extensions that provide fast
+access to the underlying hardware.
+Using a 3.8+ kernel for your virtual Linux servers will provide the best performance.
+To do so, you should use at least Amazon Linux 13.09, Ubuntu 14.04, or RHEL7. If
+you’re starting new virtual servers, make sure you’re using HVM images.

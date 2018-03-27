@@ -1,3 +1,10 @@
-hi my name is justin
-I really like to program in C
-It's fun!
+The command C-c C-o (outline-hide-other) hides everything except the entry that point is in, plus its parents (the headers leading up from there to top level in the outline) and the top level headings. It also reveals body lines preceding the first heading in the buffer.
+
+The remaining commands affect the whole buffer. C-c C-t (outline-hide-body) makes all body lines invisible, so that you see just the outline structure (as a special exception, it will not hide lines at the top of the file, preceding the first header line, even though these are technically body lines). C-c C-a (outline-show-all) makes all lines visible. C-c C-q (outline-hide-sublevels) hides all but the top level headings at and above the level of the current heading line (defaulting to 1 if point is not on a heading); with a numeric argument n, it hides everything except the top n levels of heading lines. Note that it completely reveals all the n top levels and the body lines before the first heading.
+
+When incremental search finds text that is hidden by Outline mode, it makes that part of the buffer visible. If you exit the search at that position, the text remains visible. To toggle whether or not an active incremental search can match hidden text, type M-s i. To change the default for future searches, customize the option search-invisible. (This option also affects how query-replace and related functions treat hidden text, see Query Replace.) You can also automatically make text visible as you navigate in it by using Reveal mode (M-x reveal-mode), a buffer-local minor mode. 
+
+
+
+
+
