@@ -30,13 +30,27 @@ int main(int argc, char *argv[])
 
 	for (j = 0; j < k; j++) 
 	{
-		file_array[j] = fopen(argv[n++], "r");
+		file_array[j] = fopen(argv[n], "r");
 
 		if (file_array[j] == NULL)
   		{
 			fprintf(stderr,"error: %s does not exist\n",argv[n]);
+
+			for (j = 0; j < k; j++)
+			{
+				if (file_array[j] == NULL)
+				{
+					continue;
+				}
+				else
+				{
+					fclose(file_array[j]);
+				}
+			}
+
 			exit(EXIT_FAILURE);
-		}		
+		}
+		n++;
 	}
 	
 	n = 1;
